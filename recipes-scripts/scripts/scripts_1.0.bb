@@ -8,7 +8,7 @@ BB_STRICT_CHECKSUM = "0"
 # file location
 SRC_URI = "file://keyboard_led_test.sh"
 
-S = "${WORKDIR}/local"
+S = "${WORKDIR}"
 
 MY_DESTINATION = "/home/root/scripts"
 
@@ -16,7 +16,7 @@ inherit allarch
 
 do_install:append(){
         install -d -m 0755 ${D}${MY_DESTINATION}
-        cp -r ${S} ${D}${MY_DESTINATION}
+        cp ${S}/keyboard_led_test.sh ${D}${MY_DESTINATION}
 }
 
 FILES:${PN} += "${MY_DESTINATION}"

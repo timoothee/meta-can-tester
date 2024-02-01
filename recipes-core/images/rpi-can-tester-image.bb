@@ -5,4 +5,5 @@ IMAGE_INSTALL:append = " \
 			nano \
 			cantester \
 			scripts \
+			keyboard-core-boot \
 "
