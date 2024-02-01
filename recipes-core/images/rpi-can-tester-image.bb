@@ -14,7 +14,6 @@ LOCAL_GETTY := " \
 "
 # Define a function that modifies the systemd unit config files with the autologin arguments
 local_autologin () {
-#    sed -i 's|ExecStart=-/sbin/agetty -o '-p -- \\u' --noclear - $TERM|ExecStart=-/sbin/agetty -o --autologin root '-f -p -- \\u' --noclear - $TERM|g' ${LOCAL_GETTY}
 	sed -i -e 's/^\(ExecStart *=.*getty \)/\1--autologin root /' ${LOCAL_GETTY}
 }
 
