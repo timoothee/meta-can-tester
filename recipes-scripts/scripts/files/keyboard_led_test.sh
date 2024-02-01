@@ -1,15 +1,13 @@
 #! /bin/bash
 
-echo 1 | tee '/sys/class/leds/input0::capslock/brightness'
-sleep 1
-echo 0 | tee '/sys/class/leds/input0::capslock/brightness'
-sleep 1
-echo 1 | tee '/sys/class/leds/input0::capslock/brightness'
-sleep 1
-echo 0 | tee '/sys/class/leds/input0::capslock/brightness'
-sleep 1
-echo 0 | tee '/sys/class/leds/input0::capslock/brightness'
-sleep 1
-echo 1 | tee '/sys/class/leds/input0::capslock/brightness'
-sleep 1
-echo 0 | tee '/sys/class/leds/input0::capslock/brightness'
+for (( i=0 ; i<=3 ; i++ ))
+do
+    for (( j=1 ; j>=0 ; j-- ))
+    do
+        echo $j | tee '/sys/class/leds/input0::numlock/brightness'
+        sleep 0.05
+        echo $j | tee '/sys/class/leds/input0::capslock/brightness'
+        sleep 0.05
+        echo $j | tee '/sys/class/leds/input0::scrolllock/brightness'
+    done
+done

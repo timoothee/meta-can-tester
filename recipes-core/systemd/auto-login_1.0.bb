@@ -1,12 +1,6 @@
-# Base this image on core-image-base
-include recipes-core/images/core-image-base.bb
+DESCRIPTION = "Video auto login for root user"
+LICENSE = "CLOSED"
 
-IMAGE_INSTALL:append = " \ 
-			nano \
-			cantester \
-			scripts \
-			keyboard-core-boot \
-"
 # Define a variable to hold the list of systemd unit config files to be modified.
 # Modify the video console config files.
 LOCAL_GETTY := " \
@@ -14,8 +8,7 @@ LOCAL_GETTY := " \
 "
 # Define a function that modifies the systemd unit config files with the autologin arguments
 local_autologin () {
-#    sed -i 's|ExecStart=-/sbin/agetty -o '-p -- \\u' --noclear - $TERM|ExecStart=-/sbin/agetty -o --autologin root '-f -p -- \\u' --noclear - $TERM|g' ${LOCAL_GETTY}
-	sed -i -e 's/^\(ExecStart *=.*getty \)/\1--autologin root /' ${LOCAL_GETTY}
+    sed -i -e 's|ExecStart=-/sbin/agetty -o '-p -- \\u' --noclear - $TERM|ExecStart=-/sbin/agetty -o --autologin root '-f -p -- \\u' --noclear - $TERM|g' ${LOCAL_GETTY}
 }
 
 # Add the function so that it is executed after the rootfs has been generated
