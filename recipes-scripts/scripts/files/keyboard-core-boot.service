@@ -1,0 +1,10 @@
+[Unit]
+Description=Power capslock led
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c '/home/root/scripts/keyboard_led_test.sh'
+
+[Install]
+WantedBy=multi-user.target
