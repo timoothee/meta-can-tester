@@ -5,7 +5,11 @@ IMAGE_INSTALL:append = " \
 			nano \
 			cantester \
 			scripts \
-			keyboard-core-boot \
+			python3 \
+			python3-pip \
+			rpi-gpio \
+			python3-psutil \
+			python3-pillow \
 "
 # Define a variable to hold the list of systemd unit config files to be modified.
 # Modify the video console config files.
