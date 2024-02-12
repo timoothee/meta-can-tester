@@ -11,6 +11,9 @@ IMAGE_INSTALL:append = " \
 			python3-psutil \
 			python3-pillow \
 "
+
+IMAGE_FEATURES += "x11-base x11-sato hwcodecs"
+
 # Define a variable to hold the list of systemd unit config files to be modified.
 # Modify the video console config files.
 LOCAL_GETTY := " \
