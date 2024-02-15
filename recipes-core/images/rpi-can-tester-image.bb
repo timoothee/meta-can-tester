@@ -10,9 +10,14 @@ IMAGE_INSTALL:append = " \
 			rpi-gpio \
 			python3-psutil \
 			python3-pillow \
+			can-utils \
+			lmsensors \
 "
 
 IMAGE_FEATURES += "x11-base x11-sato hwcodecs"
+
+# Make sure the dtbo is copied in the wic file
+RPI_KERNEL_DEVICETREE_OVERLAYS:append = " overlays/seeed-can-fd-hat-v1.dtbo"
 
 # Define a variable to hold the list of systemd unit config files to be modified.
 # Modify the video console config files.
