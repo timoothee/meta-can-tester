@@ -1,0 +1,10 @@
+[Unit]
+Description=Run CAN Tester app
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/opt/CAN-Tester/scripts/can-tester-start.sh'
+
+[Install]
+WantedBy=multi-user.target
