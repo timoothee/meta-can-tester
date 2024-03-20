@@ -4,7 +4,8 @@ After=graphical.target
 
 [Service]
 Type=oneshot
+ExecStartPre=/bin/sleep 5
 ExecStart=/bin/bash -c '/opt/CAN-Tester/scripts/can-tester-start.sh'
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical.target
