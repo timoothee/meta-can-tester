@@ -13,7 +13,7 @@ SYSTEMD_SERVICE:${PN} = "can-tester-boot.service"
 
 SRCREV = "${AUTOREV}" 
 #repo address
-SRC_URI = "git://github-am.geo.conti.de/ADAS-ICSolutions-GV/CANTester.git;protocol=https;branch=master \
+SRC_URI = "git://github-am.geo.conti.de/ADAS-ICSolutions-GV/CANTester.git;protocol=https;branch=dev \
             file://can-tester-boot.service \
 "
 
@@ -24,17 +24,20 @@ MY_DESTINATION = "/opt"
 do_install:append(){
         install -d -m 0755 ${D}${MY_DESTINATION}
         cp -r ${S} ${D}${MY_DESTINATION}
-		mv ${D}/opt/git/ ${D}/opt/CAN-Tester/
+	mv ${D}/opt/git/ ${D}/opt/CANTester/
         
         install -d ${D}${systemd_system_unitdir}
         install -m 0644 ${WORKDIR}/can-tester-boot.service ${D}${systemd_system_unitdir}
+
+        chmod +x ${D}/opt/CANTester/scripts/can-tester-start.sh
 }
 
 FILES:${PN} += "\
-        ${MY_DESTINATION}/CAN-Tester \
+        ${MY_DESTINATION}/CANTester \
         ${systemd_system_unitdir}/can-tester-boot.service \
 "
 
 # As it likely to be a different arch from the Yocto build, disable checking by adding "arch" to INSANE_SKIP
 INSANE_SKIP:${PN} += "arch"
 INSANE_SKIP:${PN} += "file-rdeps"
+
