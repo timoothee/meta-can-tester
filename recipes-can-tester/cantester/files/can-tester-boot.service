@@ -5,7 +5,7 @@ After=graphical.target
 [Service]
 Type=oneshot
 ExecStartPre=/bin/sleep 5
-ExecStart=/bin/bash -c '/opt/CAN-Tester/scripts/can-tester-start.sh'
+ExecStart=/bin/bash -c '/opt/CANTester/scripts/can-tester-start.sh'
 
 [Install]
 WantedBy=graphical.target

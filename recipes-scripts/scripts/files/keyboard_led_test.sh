@@ -11,5 +11,3 @@ do
         echo $j | tee '/sys/class/leds/input0::scrolllock/brightness'
     done
 done
-
-chmod +x /opt/CAN-Tester/scripts/can-tester-start.sh
