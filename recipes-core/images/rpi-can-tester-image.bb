@@ -4,7 +4,6 @@ include recipes-core/images/core-image-base.bb
 IMAGE_INSTALL:append = " \ 
 			nano \
 			cantester \
-			scripts \
 			python3 \
 			python3-pip \
 			rpi-gpio \
@@ -12,6 +11,7 @@ IMAGE_INSTALL:append = " \
 			python3-pillow \
 			can-utils \
 			lmsensors \
+			sudo \
 "
 
 IMAGE_FEATURES += "x11-base x11-sato hwcodecs"
