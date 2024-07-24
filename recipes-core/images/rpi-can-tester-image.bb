@@ -11,7 +11,6 @@ IMAGE_INSTALL:append = " \
 			python3-pillow \
 			can-utils \
 			lmsensors \
-			sudo \
 "
 
 IMAGE_FEATURES += "x11-base x11-sato hwcodecs"
