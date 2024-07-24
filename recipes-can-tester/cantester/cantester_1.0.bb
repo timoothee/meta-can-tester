@@ -13,7 +13,7 @@ SYSTEMD_SERVICE:${PN} = "can-tester-boot.service"
 
 SRCREV = "${AUTOREV}" 
 #repo address
-SRC_URI = "git://github-am.geo.conti.de/ADAS-ICSolutions-GV/CANTester.git;protocol=https;branch=dev \
+SRC_URI = "git://github-am.geo.conti.de/ADAS-ICSolutions-GV/CANTester_MultiChannel.git;protocol=https;branch=dev \
             file://can-tester-boot.service \
 "
 
